@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn clean package spring-boot:repackage'
             }
         }
         stage('Test') {
@@ -14,10 +14,6 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage('Deploy') {
-            steps {
-                sh 'java -jar target/myapp.jar'
-            }
-        }
+        
     }
 }
